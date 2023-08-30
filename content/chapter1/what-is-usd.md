@@ -1,6 +1,6 @@
 ---
-title: What is OpenUSD
+title: "What Is Usd"
 weight: -20
 ---
 
-This page tells you what is openUSD
+So this is what USD is

@@ -35,11 +35,11 @@ enableRobotsTXT = true
 
   # (Optional, default false) Render menu from data file in 'data/menu/main.yaml'.
   # See also https://geekdocs.de/usage/menus/#bundle-menu.
-  geekdocMenuBundle = true
+  # geekdocMenuBundle = true
 
   # (Optional, default false) Collapse all menu entries, can not be overwritten
   # per page if enabled. Can be enabled per page via 'geekdocCollapseSection'.
-  geekdocCollapseAllSections = true
+  geekdocCollapseAllSections = false
 
   # (Optional, default true) Show page navigation links at the bottom of each
   # docs page (bundle menu only).
