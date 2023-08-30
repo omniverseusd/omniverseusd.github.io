@@ -39,7 +39,7 @@ USD is a very descriptive, complex and powerful 3D representation format, some o
 
 Pixar has also open-sourced with the same license a reference implementation (i.e. nothing stops you from conforming to the specifications and writing a USD implementation yourself) of the USD standard, i.e. they provide a rather large C++ library hosted at [github.com/PixarAnimationStudios/USD](https://github.com/PixarAnimationStudios/OpenUSD) that users can download, compile, contribute to, etc.. the library is written in C++ but python bindings are also available in that same repository to call USD APIs from Python programs.
 
-It has to be noted that this library doesn’t provide any renderer in itself, i.e. even if you clone the repository, build it, generate the python bindings and write code to generate a cube
+It has to be noted that this library doesn’t provide any renderer in itself, i.e. even if you clone the repository, build it, generate the python bindings and write code to generate a cube on an empty stage and save it to a USD file as follows
 
 ```python
 from pxr import Usd, UsdGeom
@@ -57,4 +57,6 @@ cube.GetExtentAttr().Set([(1.0, 1.0, 1.0)])
 stage.GetRootLayer().Save()
 ```
 
-you will have the opportunity to save this stage as a USD file, but you will not have any viewer to visually inspect and render that cube. USD defines another rather complex specification for a rendering architecture called Hydra that renderer programmers can abide by to have their own renderer integrate with USD scenes. There is however a small tool called [usdView](https://docs.omniverse.nvidia.com/usdview/latest/overview.html) in the same official USD repo based on PyQt that allows you to quickly render USD stages (mostly for debugging purposes and to understand how USD works).
+you will be able to execute this python USD code and get a USD output file with a stage with a cube on it, but you will not have any way to visually inspect and render that cube. USD defines another rather complex specification for a rendering architecture called Hydra that renderer programmers can abide by to have their own renderer integrate with USD scenes. There is however a small tool called [usdView](https://docs.omniverse.nvidia.com/usdview/latest/overview.html) in the same official USD repo based on PyQt that allows you to quickly render USD stages (mostly for debugging purposes and to understand how USD works).
+
+In the next paragraph we will introduce a powerful tool that we'll be using to render the contents of USD files and to execute USD python commands dynamically on a stage.
