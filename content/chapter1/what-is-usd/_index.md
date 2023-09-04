@@ -1,6 +1,6 @@
 ---
 title: "What is Usd"
-weight: -20
+weight: -30
 resources:
   - name: ov_muting_layers_example
     src: "ov_muting_layers_example.gif"
@@ -31,7 +31,7 @@ USD is a very descriptive, complex and powerful 3D representation format, some o
 
 <!-- spellchecker-disable -->
 
-{{< img name="ov_muting_layers_example" lazy=false size=origin >}}
+{{< img name="ov_muting_layers_example" size=origin >}}
 
 <!-- spellchecker-enable -->
 
@@ -60,5 +60,15 @@ stage.GetRootLayer().Save()
 ```
 
 you will be able to execute this python USD code and get a USD output file with a stage with a cube on it, but you will not have any way to visually inspect and render that cube. USD defines another rather complex specification for a rendering architecture called Hydra that renderer programmers can abide by to have their own renderer integrate with USD scenes. There is however a small tool called [usdView](https://docs.omniverse.nvidia.com/usdview/latest/overview.html) in the same official USD repo based on PyQt that allows you to quickly render USD stages (mostly for debugging purposes and to understand how USD works).
+
+## Performance considerations
+
+Even though USD was originally created by Pixar for its own filmmaking needs, USD is a great choice even for more complex realtime applications (in fact it is also used in Omniverse physical large-scale simulations).
+
+Advanced and performance-intensive graphical applications in Omniverse would use something called [USDRT and its underlying library Fabric](https://docs.omniverse.nvidia.com/kit/docs/usdrt/latest/docs/usd_fabric_usdrt.html).
+The goal of Fabric is to act as a fast runtime cache for USD data and it enables massive performance gains by still leveraging all the capabilities of the USD format. USDRT can be thought as a wrapper on top of Fabric with an API that mimicks USD's one (so that you can just plug in Fabric under the hood without changing your USD code).
+
+So bottom line is: USD is still a great choice for any performance intensive application even though it was originally conceived as an offline scene composing format.
+
 
 In the next pages we will introduce a powerful tool that we'll be using to render the contents of USD files and to execute USD python commands dynamically on a stage.

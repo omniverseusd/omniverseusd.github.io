@@ -1,6 +1,6 @@
 ---
 title: "Using Omniverse to learn USD"
-weight: -10
+weight: -20
 resources:
   - name: create_joints_authoring_video
     src: "create_joints_authoring_video.png"
@@ -30,7 +30,7 @@ The former is a 3D authoring program which allows users to compose complex scene
 
 <!-- spellchecker-disable -->
 
-[{{< img name="create_joints_authoring_video" lazy=false size=origin >}}](https://www.youtube.com/watch?v=3QjFjpUooXI)
+[{{< img name="create_joints_authoring_video" size=origin >}}](https://www.youtube.com/watch?v=3QjFjpUooXI)
 
 <!-- spellchecker-enable -->
 
