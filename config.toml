@@ -12,6 +12,8 @@ enableGitInfo = true
 # Required if you want to render robots.txt template
 enableRobotsTXT = true
 
+timeout = "120s"
+
 [markup]
   [markup.goldmark.renderer]
     # Needed for mermaid shortcode
