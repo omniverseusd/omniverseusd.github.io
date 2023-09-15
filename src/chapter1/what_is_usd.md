@@ -2,9 +2,9 @@
 
 USD stands for "Universal Scene Description" and at this point is an umbrella term that includes an open standard [https://openusd.org/](https://openusd.org/) to collaboratively edit and create 3D scenes and assets, apply physically correct properties to the 3D assets, describe the materials to apply, define the hierarchies (e.g. which asset goes under which other asset to create the 3D model of a car), define how properties vary with time (e.g. for an animation of a 3D model) and much more.
 
-Among other things the USD standard also describes a file format (.usd files) which defines how to save that information to a single or multiple files that can be shared with other users locally or across a network to collaborate on authoring (i.e. 'editing') and visualizing 3D scenes.
+Among other things the USD standard also describes a _serialization file format_ (in the simplest case to describe how data is laid out in .usd files) which defines how to save that information to a single or multiple files that can be shared with other users locally or across a network to collaborate on authoring (i.e. 'editing') and visualizing 3D scenes.
 
-A consortium called the [Alliance for OpenUSD](https://aousd.org/) has recently been created and among other tasks they're working on creating a formal specification (much like the C++'s standard) for OpenUSD.
+A consortium called the [Alliance for OpenUSD](https://aousd.org/) has recently been created and among other tasks they're working on creating a formal specification (much like the C++'s standard) for OpenUSD and its file formats.
 
 ## What is the goal of USD
 
@@ -57,7 +57,7 @@ Even though USD was originally created by Pixar for its own filmmaking needs, US
 Advanced and performance-intensive graphical applications in Omniverse would use something called [USDRT and its underlying library Fabric](https://docs.omniverse.nvidia.com/kit/docs/usdrt/latest/docs/usd_fabric_usdrt.html).
 The goal of Fabric is to act as a fast runtime cache for USD data and it enables massive performance gains by still leveraging all the capabilities of the USD format. USDRT can be thought as a wrapper on top of Fabric with an API that mimicks USD's one (so that you can just plug in Fabric under the hood without changing your USD code).
 
-So bottom line is: USD is still a great choice for any performance intensive application even though it was originally conceived as an offline scene composing format.
+So bottom line is: USD is still a great choice for any performance intensive application even though it was originally conceived as an offline scene composing format thanks to the work that NVIDIA has been putting into it.
 
 
 In the next pages we will introduce a powerful tool that we'll be using to render the contents of USD files and to execute USD python commands dynamically on a stage.
