@@ -57,7 +57,7 @@ The following extensions and formats are possible in USD:
 
 | Extension            | Format of the data inside the file                                      |
 | --------------- | ------------------------------------------------ |
-| .usda (or .usd) | ASCII human readable file (can get quite large with complex 'flattened' - i.e. containing everything referenced outside into one single file - scenes). This can be written in a text editor. |
+| .usda (or .usd) | ASCII human readable file. It can get quite large with complex 'flattened' scenes (i.e. scenes containing everything they reference outside collected into one single file). This can be written in a text editor. |
 | .usdc (or .usd) | 'c' stands for 'crate', denotes compressed binary files. Designed for minimal parsing on file load (structure is set up at the top). Uses LZ4 in some parts. |
 | .usdz | Uncompressed zip archive that can contain other usda/usdc/usd or image or audio files inside. Meant for publishing only and should not be used for editing but as a read-only format. Again: it's uncompressed, the zip aspect is just for bundling purposes. |
 
