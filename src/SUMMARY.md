@@ -8,3 +8,5 @@
   - [What is USD](./chapter1/what_is_usd.md)
   - [Using Omniverse to learn USD](./chapter1/using_omniverse_to_learn_usd.md)
   - [Hello USD](./chapter1/hello_usd.md)
+- [Chapter 2]()
+  - [Context, stage and layers](./chapter2/context-stage-and-layers.md)
