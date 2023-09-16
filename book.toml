@@ -6,8 +6,8 @@ src = "src"
 title = "Learn OpenUSD"
 
 [output.html]
-default-theme = "Navy"
-preferred-dark-theme = "Navy"
+default-theme = "Coal"
+preferred-dark-theme = "Coal"
 curly-quotes = true
 git-repository-url = "https://github.com/learnusd/learnusd.github.io"
 edit-url-template = "https://github.com/learnusd/learnusd.github.io/edit/develop/{path}"
