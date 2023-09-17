@@ -14,7 +14,7 @@ edit-url-template = "https://github.com/learnusd/learnusd.github.io/edit/develop
 git-repository-icon = "fa-github"
 additional-css = [
     "theme/custom.css",
-    "./mdbook-admonish.css"
+    "theme/mdbook-admonish.css"
 ]
 no-section-label = true
 

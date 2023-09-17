@@ -74,7 +74,7 @@ print(old_stage)  # Old stage is NO LONGER valid here
 
 Executing the code above in the `Script Editor` prints something like the following
 
-```
+```python
 (19:06:08)> /tmp/carb.VUw057/script_169285425.py
 Usd.Stage.Open(rootLayer=Sdf.Find('anon:0x107afbd0:World0.usd'), sessionLayer=Sdf.Find('anon:0x107afe00:World0-session.usda'), pathResolverContext=<invalid repr>)
 Usd.Stage.Open(rootLayer=Sdf.Find('anon:0x107afbd0:World0.usd'), sessionLayer=Sdf.Find('anon:0x107afe00:World0-session.usda'), pathResolverContext=<invalid repr>)
@@ -116,7 +116,7 @@ usd_context.attach_stage_with_callback(stage_id, None)
 print(old_stage)  # Still valid here!
 ```
 
-```
+```python
 (19:06:08)> /tmp/carb.VUw057/script_169285425.py
 Usd.Stage.Open(rootLayer=Sdf.Find('anon:0x107afbd0:World0.usd'), sessionLayer=Sdf.Find('anon:0x107afe00:World0-session.usda'), pathResolverContext=<invalid repr>)
 Usd.Stage.Open(rootLayer=Sdf.Find('anon:0x107afbd0:World0.usd'), sessionLayer=Sdf.Find('anon:0x107afe00:World0-session.usda'), pathResolverContext=<invalid repr>)
@@ -140,8 +140,9 @@ Prims can be `def`ined in a layer and have `over`ridden properties in another:
 Note the small white triangle on `World` and `Cube` under `layer3.usda`: that symbol is a `delta` and indicates that only changed properties were registered in that layer and the entire assets were **not** completely duplicated
 ```
 
-```shell
+```python
 $ cat layer2.usda
+
 #usda 1.0
 (
     customLayerData = {
@@ -174,7 +175,7 @@ over "World"
 }
 ```
 
-Also note that in the hierarchy above `layer3` is positioned **above** `layer2` and therefore has a stronger opinion on the `xformOp:translate` property (which corresponds to the position of the prim) - layer3 is gonna win and place the cube at `(177.0296449279361, 0, 0)`.
+Also note that in the hierarchy above `layer3` is positioned **above** `layer2` and therefore has a stronger opinion on the `xformOp:translate` property (which corresponds to the position of the prim) - `layer3` is gonna win and place the cube at `(177.0296449279361, 0, 0)`.
 The idea would be that `layer2` defines a 3D model created by an artist who is still working out some parts of it, the Omniverse Nucleus service has already synchronized the file with the local OV Composer copy of another scene artist who decided that the 3D model looks better moved from `(-255.80417243728027, 0, 0)` to `(177.0296449279361, 0, 0)` and authored this property in `layer3`. This is an example of a _non-destructive_ workflow: properties are changed, added and overridden without destroying the underlying layers. Artists, programmers, simulation engineers and whatnot can still work together within a USD scene by ensuring only their deltas are applied (and, eventually at the end of the work, maybe all changes _flattened_ in the root layer, i.e. re-unifying all deltas and just getting everything together in the single layer which is the root layer).
 
 Layers allow to create a gigantic amount of scenes without eating up a lot of space by reusing assets and just operating on changing properties via deltas.
