@@ -1,0 +1,6 @@
+https://docs.omniverse.nvidia.com/workflows/latest/variant-workflows.html#usd-opinion-order
+https://docs.omniverse.nvidia.com/workflows/latest/openusd-developer/api-comparison.html#module-name
+http://omniverse-docs.s3-website-us-east-1.amazonaws.com/kit-manual/105.2/guide/configuring.html
+
+Tf.Debug.SetDebugSymbolsByName('SDF_CHANGES', True)
+Tf.Debug.SetDebugSymbolsByName('SDF_LAYER', True)
