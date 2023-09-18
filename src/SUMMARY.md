@@ -12,3 +12,4 @@
   - [Context, Stage and Layers](./chapter2/context_stage_and_layers.md)
   - [Foundational Classes and Python/C++ differences](./chapter2/foundational_classes_and_py_cpp_differences.md)
   - [Prims and Properties](./chapter2/prims_and_properties.md)
+  - [An example of layers and time-sampled attributes](./chapter2/example_layers_attributes_time_sampled.md)
