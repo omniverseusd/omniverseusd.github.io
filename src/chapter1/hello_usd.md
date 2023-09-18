@@ -58,10 +58,11 @@ The following extensions and formats are possible in USD:
 | Extension            | Format of the data inside the file                                      |
 | --------------- | ------------------------------------------------ |
 | .usda (or .usd) | ASCII human readable file. It can get quite large with complex 'flattened' scenes (i.e. scenes containing everything they reference outside collected into one single file). This can be written in a text editor. |
-| .usdc (or .usd) | 'c' stands for 'crate', denotes compressed binary files. Designed for minimal parsing on file load (structure is set up at the top). Uses LZ4 in some parts. |
+| .usdc (or .usd) | 'c' stands for 'crate', denotes compressed binary files. Designed for minimal parsing on file load (structure is set up at the top). Uses LZ4 in some parts. Uses memory mapping for fast load. |
 | .usdz | Uncompressed zip archive that can contain other usda/usdc/usd or image or audio files inside. Meant for publishing only and should not be used for editing but as a read-only format. Again: it's uncompressed, the zip aspect is just for bundling purposes. |
 
 USDA files always start with `#usda 1.0` at the beginning while `usdc` have a magic number.
+`.usd` is an _alias_ extension: internally it can be either a `usda` or `usdc` file.
 
 Remember that there are various tools that you can use to inspect USD files and operate on them, e.g. [usdview, usdcat, usddiff and a complete toolset from OpenUSD](https://openusd.org/release/toolset.html). We'll be using Omniverse tools instead.
 
