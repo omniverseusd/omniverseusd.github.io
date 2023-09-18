@@ -53,7 +53,7 @@ def DistantLight "DistantLight" (
 
 some elements might already be familiar to computer graphics programmers: normals, point coordinates, UV coords, etc.
 
-The following extensions and formats are possible in USD:
+USD extensions can be confusing at times: the following file extensions and formats are defined in USD:
 
 | Extension            | Format of the data inside the file                                      |
 | --------------- | ------------------------------------------------ |
@@ -66,7 +66,7 @@ USDA files always start with `#usda 1.0` at the beginning while `usdc` have a ma
 
 Remember that there are various tools that you can use to inspect USD files and operate on them, e.g. [usdview, usdcat, usddiff and a complete toolset from OpenUSD](https://openusd.org/release/toolset.html). We'll be using Omniverse tools instead.
 
-If we save this `usda` text file on disk and open it with OV Composer, it will display a simple lit cube mesh.
+If we save the previous text file as `hello_cube.usda` on disk with a simple text editor and open it with OV Composer, it will display a simple lit cube mesh.
 
 ## A usdview clone with OV Composer
 
