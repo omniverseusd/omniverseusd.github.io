@@ -59,21 +59,17 @@ def Xform "World"
 
 ![](../images/chapter2/example_prim_car_and_wheel.png)
 
-Prims can have types too
+Prims can have types and much more too:
 
 ```python
 def Mesh "Car_Chassis" (apiSchemas = ["GiveThisPrimPropertiesToBehaveAsAMetalPiece"])
-#^   ^     ^            ^
-#|   |     |            |
-#specifier (whether this is a prim definition, an OVERride to override properties of another prim, etc.)
-#    |     |            |
-#    type, this is the type of the prim (e.g. Mesh, Xform, DomeLight, etc..)
-#          |            |
-#          name - this is the name (part of the SdfPath so it cannot contain spaces) of the prim
-#                       |
-#                       prim metadata, API schemas, references, variantsets, etc. are specified here, together
-#                       with user-defined metadata in a predefined dictionary here ("customData")
+#1   #2       #3        #4
 ```
+
+1. `specifier` (whether this is a prim definition, an OVERride to override properties of another prim, etc.)
+2. `type`, this is the type of the prim (e.g. Mesh, Xform, DomeLight, etc..)
+3. `name` - this is the name (part of the SdfPath so it cannot contain spaces) of the prim
+4. prim `metadata`, API schemas, references, variantsets, etc. are specified here, together with user-defined metadata in a predefined dictionary here (i.e. `customData`)
 
 A mesh is a type of prim meant to store render-able data (points, normals, maybe UV coords, etc.), an xform prim stores a transform matrix that applies to its child prims (that can be the identity prim - in that case the xform prim name can be useful to group other prims and have a name that is meaningful to human readers/artists, much like the `Car` xform prim that we used in the image above to group together the wheel and the car chassis), etc.
 
