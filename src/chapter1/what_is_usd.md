@@ -8,7 +8,7 @@ A consortium called the [Alliance for OpenUSD](https://aousd.org/) has recently 
 
 ## What is the goal of USD
 
-There used to be no consensus among modeling softwares (e.g. Blender, 3D Studio Max or Maya) and programs operating on assets needed to compose 3D scenes (e.g. programs to aid in material designing like Adobe Substance Painter) on how to communicate with each other (especially if from different vendors). These programs are commonly referred to as _DCC tools_, i.e. "Digital Content Creator" tools.
+There used to be no consensus among modeling software programs (e.g. Blender, 3D Studio Max or Maya) and programs operating on assets needed to compose 3D scenes (e.g. programs to aid in material designing like Adobe Substance Painter) on how to communicate with each other (especially if from different vendors). These programs are commonly referred to as _DCC tools_, i.e. "Digital Content Creator" tools.
 
 USD aims at filling that gap and providing a single source of truth to exchange files seamlessly and let multiple people work on the same 3D scene/model at the same time.
 
