@@ -62,7 +62,7 @@ def Xform "World"
 Prims can have types too
 
 ```python
-def Mesh "Car_Chassis" (apiSchemas = ["GiveThisPrimPropertiesAndMethodsToBehaveAsAMetalPiece"])
+def Mesh "Car_Chassis" (apiSchemas = ["GiveThisPrimPropertiesToBehaveAsAMetalPiece"])
 #^   ^     ^            ^
 #|   |     |            |
 #specifier (whether this is a prim definition, an OVERride to override properties of another prim, etc.)
