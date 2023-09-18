@@ -161,7 +161,7 @@ Both prims and properties are identified by unique SdfPaths: examples for the ab
 /World/Car/Wheel.material:binding
 ```
 
-OV Composer has a handy property visualization pane which summarizes all properties of a prim and allows you to also copy the full SdfPaths
+OV Composer has a handy property visualization pane which summarizes all properties of a prim and allows you to also copy the full SdfPaths by simply right-clicking on a visualized property
 
 ![](../images/chapter2/copy_property_path_in_ov.png)
 
