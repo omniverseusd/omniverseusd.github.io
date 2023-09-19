@@ -4,7 +4,7 @@ We already saw in the previous chapter how multiple sublayers each one with diff
 
 There are other ways and operators that can be used to determine how layer stacks and their opinions are combined together, here's an intuitive overview:
 
-* **Sublayers** - we've seen these already, similar to Photoshop layers. Each one can be backed by a USD file on disk and provide - according to their order in the layer stack - different opinions.
+* **Sublayers** - we've seen these already in [the previous section](../chapter2/example_layers_attributes_time_sampled.md), similar to Photoshop layers. Each one can be backed by a USD file on disk and provide - according to their order in the layer stack - different opinions.
 * **References** - they allow to put entire layers under prims to maximize prims reuse
 * **VariantSet** - switchable states for a prim: think of multiple colors, materials and even different wheel rims for a car in a configurator scene
 * **Payload** - _lazily loaded references_: these can be loaded or unloaded at runtime on user request (think LoD - Level of Detail - a high resolution model can be avoided to be loaded entirely if it makes sense on an already-quite-heavy USD scene)

@@ -136,6 +136,11 @@ Layers in USD are collections of `prims` (short for _primitive_ in USD, for inst
 
 Much like Photoshop layers, each layer can add to or override some properties defined in the layers below it. Each scene, as we've already seen, has a `Root Layer`, i.e. a main layer (backed by a USD file as well) on which the stage is initially opened. It is also the **strongest override layer** (except for a special layer called `session layer` which is like a scratch space for Kit and it's by default hidden to the users), i.e. the layer where the 'opinions' on a prim property count more than all of its sublayers.
 
+```admonish tip
+You can view the session layer contents in Omniverse Composer by checking the checkmark `Session Layer` from the hamburger menu in the `Layer` pane
+![](../images/chapter2/session_layer_in_ov_composer.png)
+```
+
 Prims can be `def`ined in a layer and have `over`ridden properties in another:
 
 ```admonish info
