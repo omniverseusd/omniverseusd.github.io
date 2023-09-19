@@ -11,3 +11,14 @@ GetPrimStack() and a sample for e.g. the cube sample in sublayer, what are prims
 tokens in OV https://docs.omniverse.nvidia.com/kit/docs/kit-manual/latest/guide/tokens.html, also event streams for USD events, lots of good stuff here https://docs.omniverse.nvidia.com/kit/docs/kit-manual/latest/guide/profiling.html
 
 instanceable & proxies
+
+https://docs.omniverse.nvidia.com/dev-guide/latest/programmer_ref/usd.html
+
+
+
+show that relationships can be between prims https://docs.omniverse.nvidia.com/dev-guide/latest/programmer_ref/usd/properties/create-relationship.html
+
+https://docs.omniverse.nvidia.com/dev-guide/latest/programmer_ref/usd/properties/add-relationship-target.html
+
+show USD added etc. with events
+https://docs.omniverse.nvidia.com/dev-guide/latest/programmer_ref/events.html
