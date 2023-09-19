@@ -1,4 +1,4 @@
-# An example of layers and time-sampled attributes
+# Sublayers: authoring time-sampled attributes
 
 Before we proceed further let's take a look at an example of what we've learned so far: we will generate through Python code multiple USD layers, save them to three different `.usda` files, compose them on a stage and use different time-sampled attributes to demonstrate how one property in a layer can be overridden in another stronger layer.
 

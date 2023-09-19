@@ -1,4 +1,4 @@
-# Code Examples of Composition Arcs
+# Diving into References, VariantSets, Payloads, Inherits and Specializes
 
 In this section we'll explore practical code examples for the other composition arcs that allow USD to compose scene prims.
 

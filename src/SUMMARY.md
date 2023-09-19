@@ -12,6 +12,7 @@
   - [Context, Stage and Layers](./chapter2/context_stage_and_layers.md)
   - [Foundational Classes and Python/C++ differences](./chapter2/foundational_classes_and_py_cpp_differences.md)
   - [Prims and Properties](./chapter2/prims_and_properties.md)
-  - [An example of layers and time-sampled attributes](./chapter2/example_layers_attributes_time_sampled.md)
+  - [Sublayers: Authoring Time-Sampled Attributes](./chapter2/time_sampled_attributes_in_sublayers.md)
 - [Chapter 3]()
   - [Composition Arcs](./chapter3/composition_arcs.md)
+  - [Diving into References, VariantSets, Payloads, Inherits and Specializes](./chapter3/refs_variants_payloads_inherits_specializes.md)
