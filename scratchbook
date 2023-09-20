@@ -22,3 +22,12 @@ https://docs.omniverse.nvidia.com/dev-guide/latest/programmer_ref/usd/properties
 
 show USD added etc. with events
 https://docs.omniverse.nvidia.com/dev-guide/latest/programmer_ref/events.html
+
+
+# Get a list of all prepended payloads
+payloads = []
+for prim_spec in payload_prim.GetPrimStack():
+    payloads.extend(prim_spec.payloadList.prependedItems)
+
+
+https://www.sidefx.com/docs/houdini/solaris/usd.html

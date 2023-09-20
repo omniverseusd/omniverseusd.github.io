@@ -1,6 +1,6 @@
 # Composition Arcs
 
-We already saw in the previous chapter how multiple sublayers each one with different opinions are composed together when referenced by another layer to compose a final stage.
+We already saw in the previous chapter how multiple sublayers each one with different opinions are composed together when referenced by another layer to compose a final stage ([Sublayers: authoring time-sampled attributes](../chapter2/time_sampled_attributes_in_sublayers.md)): that is just one of the many ways USD places at your disposal to compose a scene graph and resolve which attribute value should be used amongst many.
 
 There are other ways and operators that can be used to determine how layer stacks and their opinions are combined together, here's an intuitive overview:
 
@@ -13,7 +13,7 @@ There are other ways and operators that can be used to determine how layer stack
 
 Even if `Specializes` wins over other overrides, this composition arc is the _last one_ and _weakest_ to be scanned. This is by design.
 
-In the next sections we'll take a deeper coding look at each of these USD composition techniques, but first an overview into their evaluation order.
+In this chapter we will take a deeper coding look at each of these USD composition techniques, but first an overview into their evaluation order.
 
 ## LIVRPS
 

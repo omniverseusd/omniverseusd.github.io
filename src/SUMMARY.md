@@ -15,4 +15,10 @@
   - [Sublayers: Authoring Time-Sampled Attributes](./chapter2/time_sampled_attributes_in_sublayers.md)
 - [Chapter 3]()
   - [Composition Arcs](./chapter3/composition_arcs.md)
-  - [Diving into References, VariantSets, Payloads, Inherits and Specializes](./chapter3/refs_variants_payloads_inherits_specializes.md)
+  - [References](./chapter3/references.md)
+  - [VariantSet](./chapter3/variantset.md)
+  - [Payload](./chapter3/payload.md)
+  - [Inherits](./chapter3/inherits.md)
+  - [Specializes](./chapter3/specializes.md)
+
+
