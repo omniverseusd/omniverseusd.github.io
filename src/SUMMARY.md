@@ -22,5 +22,7 @@
   - [Specializes](./chapter3/specializes.md)
 - [Chapter 4]()
   - [Primspec and Attributes](./chapter4/primspecs_and_attributes.md)
+  - [Instancing](./chapter4/instancing.md)
+
 
 
