@@ -20,5 +20,7 @@
   - [Payload](./chapter3/payload.md)
   - [Inherits](./chapter3/inherits.md)
   - [Specializes](./chapter3/specializes.md)
+- [Chapter 4]()
+  - [Primspec and Attributes](./chapter4/primspecs_and_attributes.md)
 
 
