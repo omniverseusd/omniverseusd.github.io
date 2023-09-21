@@ -31,3 +31,4 @@ for prim_spec in payload_prim.GetPrimStack():
 
 
 https://www.sidefx.com/docs/houdini/solaris/usd.html
+https://lucascheller.github.io/VFX-UsdSurvivalGuide/core/elements/path.html
