@@ -178,7 +178,7 @@ over "World"
 {
     over "Cube"
     {
-        double3 xformOp:translate = (177.0296449279361, 0, 0)  <---- overrides this property for the prim /World/Cube
+        double3 xformOp:translate = (177.0296449279361, 0, 0)  # <---- overrides this property for the prim /World/Cube
         ...
     }
 }
