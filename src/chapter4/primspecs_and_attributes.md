@@ -146,7 +146,7 @@ over "World"
 }
 ```
 
-```
+```python
 another_layer = Sdf.Layer.FindOrOpen("/tmp/another_layer.usda")
 primSpec : Sdf.PrimSpec = another_layer.GetPrimAtPath("/World/Sphere")
 for attr in primSpec.attributes:
