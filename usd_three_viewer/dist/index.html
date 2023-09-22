@@ -22,4 +22,17 @@
     <div class="viewzone">
     <div class="spinner"></div>
   </main>
+
+  <script>
+    // Select all anchor elements in this page with the old URL
+    var oldUrl = "usd_three_viewer/index.html";
+    var anchorsWithOldUrl = document.querySelectorAll('a[href="' + oldUrl + '"]');
+
+    // Update the href attribute for each matching anchor
+    console.log("scanning...")
+    anchorsWithOldUrl.forEach(function(anchor) {
+      console.log("YEAH WE FOUND A LINK")
+      anchor.href = "index.html";
+    });
+  </script>
 </body>

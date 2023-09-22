@@ -20,4 +20,15 @@
     <div class="viewzone">
     <div class="spinner"></div>
   </main>
+
+  <script>
+    // Hacky way at the end of page load to replace mdbook's botched homepage link
+    var oldUrl = "usd_three_viewer/index.html";
+    var anchorsWithOldUrl = document.querySelectorAll('a[href="' + oldUrl + '"]');
+
+    // Update the href attribute for each matching anchor
+    anchorsWithOldUrl.forEach(function(anchor) {
+      anchor.href = "index.html";
+    });
+  </script>
 </body>
