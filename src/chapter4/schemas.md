@@ -1,0 +1,1 @@
+https://lucascheller.github.io/VFX-UsdSurvivalGuide/core/elements/schemas.html
