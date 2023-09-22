@@ -7,21 +7,19 @@
   <meta name="author" content="Don McCurdy">
   <meta name="description" content="Drag-and-drop preview tool for glTF 2.0 3D models.">
   <script>
-    // Hacky way at the end of page load to replace mdbook's botched homepage link
-    var oldUrl = "usd_three_viewer/index.html";
-    var anchorsWithOldUrl = document.querySelectorAll('a[href="' + oldUrl + '"]');
-
-    // Update the href attribute for each matching anchor
-    anchorsWithOldUrl.forEach(function(anchor) {
-      anchor.href = "index.html";
-    });
+    // Hacky way to prevent mdbook's botched homepage link
+    var currentUrl = window.location.href;
+    if (currentUrl.endsWith("usd_three_viewer/index.html")) {
+      // Redirect to "index.html" immediately.
+      window.location.href = "../index.html";
+    }
   </script>
   <link rel="canonical" href="https://gltf-viewer.donmccurdy.com/">
   <link rel="shortcut icon" href="/favicon.ico">
   
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,400" rel="stylesheet">
   
-  <script type="module" crossorigin src="./usd_three_viewer/assets/index-c3d8dac0.js"></script>
+  <script type="module" crossorigin src="./usd_three_viewer/assets/index-d2f30196.js"></script>
   <link rel="stylesheet" href="./usd_three_viewer/assets/index-3a0eb812.css">
 </head>
 <body>
