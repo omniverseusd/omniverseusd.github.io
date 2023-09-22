@@ -596,6 +596,7 @@ export class Viewer {
         guiWrap.classList.add('gui-wrap');
         guiWrap.appendChild(gui.domElement);
         gui.open();
+        gui.close();
 
     }
 

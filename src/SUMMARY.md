@@ -24,7 +24,6 @@
   - [Primspec and Attributes](./chapter4/primspecs_and_attributes.md)
   - [Instancing](./chapter4/instancing.md)
 
-
 ----------------------
 
 [Credits](./credits.md)
