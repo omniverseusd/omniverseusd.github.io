@@ -25,6 +25,6 @@
   - [Instancing](./chapter4/instancing.md)
 
 
------------
+----------------------
 
 [Credits](./credits.md)
