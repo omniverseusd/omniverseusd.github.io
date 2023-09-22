@@ -6,6 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="author" content="Don McCurdy">
   <meta name="description" content="Drag-and-drop preview tool for glTF 2.0 3D models.">
+  <script>
+    // Hacky way at the end of page load to replace mdbook's botched homepage link
+    var oldUrl = "usd_three_viewer/index.html";
+    var anchorsWithOldUrl = document.querySelectorAll('a[href="' + oldUrl + '"]');
+
+    // Update the href attribute for each matching anchor
+    anchorsWithOldUrl.forEach(function(anchor) {
+      anchor.href = "index.html";
+    });
+  </script>
   <link rel="canonical" href="https://gltf-viewer.donmccurdy.com/">
   <link rel="shortcut icon" href="/favicon.ico">
   
@@ -22,17 +32,4 @@
     <div class="viewzone">
     <div class="spinner"></div>
   </main>
-
-  <script>
-    // Select all anchor elements in this page with the old URL
-    var oldUrl = "usd_three_viewer/index.html";
-    var anchorsWithOldUrl = document.querySelectorAll('a[href="' + oldUrl + '"]');
-
-    // Update the href attribute for each matching anchor
-    console.log("scanning...")
-    anchorsWithOldUrl.forEach(function(anchor) {
-      console.log("YEAH WE FOUND A LINK")
-      anchor.href = "index.html";
-    });
-  </script>
 </body>
