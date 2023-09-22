@@ -1,5 +1,5 @@
 # SUMMARY
-[Learn OpenUSD](index.md)
+[Learn OpenUSD](dist/index.html)
 
 ----------------------
 
