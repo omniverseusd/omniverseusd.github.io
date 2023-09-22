@@ -1,5 +1,5 @@
 # SUMMARY
-[Learn OpenUSD](dist/index.html)
+[Learn OpenUSD](./usd_three_viewer/index.html)
 
 ----------------------
 
