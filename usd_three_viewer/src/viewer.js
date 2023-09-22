@@ -534,7 +534,7 @@ export class Viewer {
 
     addGUI() {
 
-        const gui = this.gui = new GUI({ autoPlace: false, width: 260, hideable: true });
+        const gui = this.gui = new GUI({ autoPlace: false, width: 260, hideable: true, closed: true });
 
         // Display controls.
         const dispFolder = gui.addFolder('Display');
