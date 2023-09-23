@@ -300,16 +300,20 @@ footer .separator {
 .spinner {
     width: 40px;
     height: 40px;
-    position: absolute;
+    /* Place this centered with respect to its container */
     left: 50%;
+    margin-top: 30%;
+    position: relative;
     top: 50%;
-    margin: -20px;
 
     background-color: #333;
 
     border-radius: 100%;
     -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
     animation: sk-scaleout 1.0s infinite ease-in-out;
+
+    /* Center horizontally and vertically */
+    transform: translate(-50%, -50%);
 }
 
 @-webkit-keyframes sk-scaleout {
