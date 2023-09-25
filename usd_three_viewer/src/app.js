@@ -11,6 +11,50 @@ if (!(window.File && window.FileReader && window.FileList && window.Blob)) {
     console.error('WebGL is not supported in this browser.');
 }
 
+// Wait for the document to fully load and add a book cover title page
+document.addEventListener('DOMContentLoaded', function () {
+
+    if (location.href.endsWith("print.html")) {
+        // Remove 'overflow: hidden' from the body element or we won't be able to print the entire doc
+        document.body.style.overflow = 'visible';
+
+        // Create a div for the book cover title page
+        var titlePageDiv = document.createElement('div');
+        titlePageDiv.style.textAlign = 'center';
+        titlePageDiv.style.marginTop = '50px';
+
+        // Add a book title
+        var bookTitle = document.createElement('h1');
+        bookTitle.textContent = 'Learn OpenUSD';
+        bookTitle.style.fontFamily = 'Arial, sans-serif';
+        bookTitle.style.fontSize = '32px';
+        titlePageDiv.appendChild(bookTitle);
+
+        // Add a subtitle
+        var subtitle = document.createElement('p');
+        subtitle.textContent = 'Written by Marco Alesiani';
+        subtitle.style.fontFamily = 'Arial, sans-serif';
+        subtitle.style.fontSize = '18px';
+        subtitle.style.color = 'gray';
+        titlePageDiv.appendChild(subtitle);
+
+        // Clear any existing content
+        var mainContentDiv = document.getElementById('main-content');
+        if (mainContentDiv) {
+            while (mainContentDiv.firstChild) {
+                mainContentDiv.removeChild(mainContentDiv.firstChild);
+            }
+
+            // Append the title page div to the main content div
+            mainContentDiv.appendChild(titlePageDiv);
+        } else {
+            // The element doesn't exist in the current document
+            console.log('Element with id "main-content" not found.');
+        }
+    }
+});
+
+
 class App {
 
     /**
@@ -18,6 +62,10 @@ class App {
      * @param  {Location} location
      */
     constructor(el, location) {
+
+        if (location.href.endsWith("print.html")) {
+            return; // Do not initialize anything webgl-related
+        }
 
         const hash = location.hash ? queryString.parse(location.hash) : {};
         this.options = {
