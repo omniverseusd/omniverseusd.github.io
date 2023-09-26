@@ -1,7 +1,7 @@
 # SUMMARY
 [Learn OpenUSD](./usd_three_viewer/index.html)
 
-----------------------
+-----------
 
 
 - [Chapter 1]()
@@ -23,7 +23,9 @@
 - [Chapter 4]()
   - [Primspec and Attributes](./chapter4/primspecs_and_attributes.md)
   - [Instancing](./chapter4/instancing.md)
-
-----------------------
+  - [List Composition](./chapter4/list_composition.md)
+  - [Schemas](./chapter4/schemas.md)
+- []()
+-----------
 
 [Credits](./credits.md)

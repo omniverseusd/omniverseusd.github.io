@@ -8,7 +8,7 @@ The [`UsdPhysics.usda` schema](https://github.com/PixarAnimationStudios/OpenUSD/
 
 There are two types of schemas:
 
-* `Typed Schemas`: these can impart a typeName to a `UsdPrim`. An example is `Cube`: in the text `usda` the defined prim as type `cube`
+* `Typed Schemas` (also called `IsA-schemas`): these can impart a typeName to a `UsdPrim`. An example is `Cube`: in the text `usda` the defined prim as type `cube`
 
     ```python
     def Cube "Cube" # type is 'Cube'
@@ -139,10 +139,100 @@ print(registry.GetSchemaKind("Cube"))  # pxr.Usd.SchemaKind.ConcreteTyped
 print(registry.GetSchemaKind("Imageable"))  # pxr.Usd.SchemaKind.AbstractTyped
 ```
 
-Lastly, let's take a look at a more complex example that removes a typed API schema from a [primspec](../chapter4/primspecs_and_attributes.md):
+Lastly, let's take a look at a more complex example that removes a typed API schema from a [primspec](../chapter4/primspecs_and_attributes.md) and uses [List Composition](./chapter4/list_composition.md):
 
-TODO
+```python
+root_stage : Usd.Stage = Usd.Stage.CreateInMemory("RootLayer.usda")
+
+def removeAPI(prim, api_name):
+    if prim.IsInstanceProxy() or prim.IsInPrototype():
+        return # invalid prim
+
+    # Get a primspec on the root stage
+    editTarget = root_stage.GetEditTarget()
+    primSpec = editTarget.GetPrimSpecForScenePath(prim.GetPath())
+
+    listOp = primSpec.GetInfo(Usd.Tokens.apiSchemas)
+
+    # Look for the API in the prepended/appended/explicit lists
+    if api_name not in listOp.prependedItems:
+        if api_name not in listOp.explicitItems:
+            if api_name not in listOp.appendedItems:
+            return # not found, we're good
+
+    # Create a new list with whatever it was already present MINUS the api_name we want to remove
+    newPrepended = listOp.prependedItems
+    newPrepended.remove(api_name)
+    listOp.prependedItems = newPrepended
+
+    result = listOp.ApplyOperations([])
+    newListOp = Sdf.TokenListOp()
+    newListOp.prependedItems = result # Reassignment is needed here due to legacy reasons
+    # Write back the primspec again
+    primSpec.SetInfo(Usd.Tokens.apiSchemas, newListOp)
+
+# Add a cube to the scene
+xform : UsdGeom.Xform = UsdGeom.Xform.Define(root_stage, Sdf.Path("/World"))
+cube : UsdGeom.Cube = UsdGeom.Cube.Define(root_stage, "/World/Cube")
+cube_prim : Usd.Prim = cube.GetPrim()
+extent = [(-50, -50, -50), (50, 50, 50)]
+cube.GetExtentAttr().Set(extent)
+cube.GetSizeAttr().Set(100)
+# Apply a CollisionAPI
+UsdPhysics.CollisionAPI.Apply(cube_prim)
+environment_xform = UsdGeom.Xform.Define(root_stage, "/World/Environment")
+dome_light = UsdLux.DomeLight.Define(root_stage, "/World/Environment/DomeLight")
+dome_light.CreateIntensityAttr(1000)
+
+# Remove the CollisionAPI
+removeAPI(cube_prim, "PhysicsCollisionAPI")
+print(cube_prim.GetMetadata("apiSchemas")) # SdfTokenListOp(Explicit Items: [])
+```
 
 ## Custom schemas
 
-As previously stated USD is _extensible_. This means that custom schemas can be defined. One would usually first figure out what kind of schema he's after (is it a multiple-apply schema? a single-apply one?)
+As previously stated USD is _extensible_. This means that custom schemas can be defined.
+This is rather common when dealing with a custom pipeline from a DCC (digital content creation software) that involves USD: a developer defines his own schemas to create custom prim types/API so that the prims have sets of attributes relevant to the DCC in question or to the kind of workflow intended.
+
+There is a [pretty good tutorial on the OpenUSD official website](https://openusd.org/release/tut_generating_new_schema.html#schema-generation-prerequisites) regarding schema generations, but we'll summarize the steps here for clarity:
+
+* One would usually first figure out what kind of schema he's after (is it a multiple-apply schema? a single-apply one?). Then a `usda` schema would usually be defined, e.g. the [`UsdPhysics schema`](https://github.com/PixarAnimationStudios/OpenUSD/blob/release/pxr/usd/usdPhysics/schema.usda). This is called the _schema definition file_.
+
+* A schema definition file can be contained within a `USD plugin`, indicating that schema definitions and associated code (if not codeless) will be included in the resulting C++ and Python libraries. A `USD plugin` is a shared library object (e.g. .dll or .so) that USD applications can load via the `Plugin registry`
+
+    ![](../images/chapter4/plugin_listing.png)
+
+* A script called `usdGenSchema` provided by the official pxr repo can be used to generate C++ classes (and/or python bindings)
+
+    ```shell
+    $ usdGenSchema schema.usda .
+
+    Processing schema classes:
+    SimplePrim, ComplexPrim, ParamsAPI
+    Loading Templates
+    Writing Schema Tokens:
+            unchanged extras/usd/examples/usdSchemaExamples/tokens.h
+            unchanged extras/usd/examples/usdSchemaExamples/tokens.cpp
+            unchanged extras/usd/examples/usdSchemaExamples/wrapTokens.cpp
+    Generating Classes:
+            unchanged extras/usd/examples/usdSchemaExamples/simple.h
+            unchanged extras/usd/examples/usdSchemaExamples/simple.cpp
+            unchanged extras/usd/examples/usdSchemaExamples/wrapSimple.cpp
+            unchanged extras/usd/examples/usdSchemaExamples/complex.h
+            unchanged extras/usd/examples/usdSchemaExamples/complex.cpp
+            unchanged extras/usd/examples/usdSchemaExamples/wrapComplex.cpp
+            unchanged extras/usd/examples/usdSchemaExamples/paramsAPI.h
+            unchanged extras/usd/examples/usdSchemaExamples/paramsAPI.cpp
+            unchanged extras/usd/examples/usdSchemaExamples/wrapParamsAPI.cpp
+            unchanged extras/usd/examples/usdSchemaExamples/plugInfo.json
+    Generating Schematics:
+            unchanged extras/usd/examples/usdSchemaExamples/generatedSchema.usda
+    ```
+* Stuff is then compiled to build the plugin shared library object that can be loaded
+
+    ```shell
+    $ cmake --build . --target install --config Release
+    ```
+
+* Finally the environment variable `PXR_PLUGINPATH_NAME` can be used to indicate the location of the plugin's `resources` directory so it can be loaded from conforming USD-based applications (e.g. Kit for Omniverse apps).
+
