@@ -271,11 +271,14 @@ export class Viewer {
         } else {
 
             this.defaultCamera.position.copy(center);
-            this.defaultCamera.position.x += size / 2.0;
+            // this.defaultCamera.position.x += size / 2.0;
+            // this.defaultCamera.position.y += size / 5.0;
+            // this.defaultCamera.position.z += size / 2.0;
+            // Overridden starting values to move the camera a bit farther away from the object
+            this.defaultCamera.position.x += size / 1.5;
             this.defaultCamera.position.y += size / 5.0;
-            this.defaultCamera.position.z += size / 2.0;
+            this.defaultCamera.position.z += size / 1.5;
             this.defaultCamera.lookAt(center);
-
         }
 
         this.setCamera(DEFAULT_CAMERA);

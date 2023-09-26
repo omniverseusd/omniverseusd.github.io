@@ -14,7 +14,7 @@ if (!(window.File && window.FileReader && window.FileList && window.Blob)) {
 // Wait for the document to fully load and add a book cover title page
 document.addEventListener('DOMContentLoaded', function () {
 
-    if (location.href.endsWith("print.html")) {
+    if (location.href.includes("print.html")) {
         // Remove 'overflow: hidden' from the body element or we won't be able to print the entire doc
         document.body.style.overflow = 'visible';
 
