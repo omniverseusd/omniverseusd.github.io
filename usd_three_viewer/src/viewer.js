@@ -279,6 +279,7 @@ export class Viewer {
             this.defaultCamera.position.y += size / 5.0;
             this.defaultCamera.position.z += size / 1.5;
             this.defaultCamera.lookAt(center);
+
         }
 
         this.setCamera(DEFAULT_CAMERA);
