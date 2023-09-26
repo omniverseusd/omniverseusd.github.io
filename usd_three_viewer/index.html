@@ -4,7 +4,7 @@
   <script>
     // Hacky way to prevent mdbook's botched homepage link
     var currentUrl = window.location.href;
-    if (currentUrl.endsWith("usd_three_viewer/index.html")) {
+    if (currentUrl.includes("usd_three_viewer/index.html")) {
       // Redirect to "index.html" immediately.
       window.location.href = "../index.html";
     }

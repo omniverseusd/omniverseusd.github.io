@@ -28,6 +28,7 @@ import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.j
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { EXRLoader } from 'three/examples/jsm/loaders/EXRLoader.js';
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
+import { SelectiveGlow } from "./SelectiveGlow.js";
 
 import { GUI } from 'dat.gui';
 
@@ -114,6 +115,9 @@ export class Viewer {
         this.controls = new OrbitControls(this.defaultCamera, this.renderer.domElement);
         this.controls.screenSpacePanning = true;
 
+        this.sg = new SelectiveGlow(this.scene, this.defaultCamera, this.renderer);
+        console.log(this.sg);
+
         this.el.appendChild(this.renderer.domElement);
 
         this.cameraCtrl = null;
@@ -130,6 +134,7 @@ export class Viewer {
         this.addGUI();
         if (options.kiosk) this.gui.close();
 
+        this.firstTimeMaterialSetupDone = false;
         this.animate = this.animate.bind(this);
         requestAnimationFrame(this.animate);
         window.addEventListener('resize', this.resize.bind(this), false);
@@ -144,7 +149,72 @@ export class Viewer {
         this.controls.update();
         this.stats.update();
         this.mixer && this.mixer.update(dt);
-        this.render();
+
+        // Given a full scene path, return the Object3D (if found)
+        function getObjectByPath(scene, path) {
+            // Split the path into an array of names
+            const names = path.split('/').filter(name => name !== ''); // Remove empty strings
+
+            // Start with the scene as the root object
+            let currentObject = scene;
+
+            // Iterate through the names and traverse the hierarchy
+            for (const name of names) {
+                currentObject = currentObject.getObjectByName(name);
+
+                // If an object with the given name doesn't exist, return null
+                if (!currentObject) {
+                    return null;
+                }
+            }
+
+            return currentObject; // Return the object at the specified path
+        }
+
+        if (this.firstTimeMaterialSetupDone == false) {
+            // var mesh = getObjectByPath(this.scene, "/Scene/Lit_plane_front");
+            let objectAtPath = getObjectByPath(this.scene, "/Scene/Lit_plane_front");
+            if (!objectAtPath) {
+                return; // Maybe scene isn't ready yet
+            }
+            this.glowingMaterial = objectAtPath.material;
+            // var material = mesh.material;
+
+            this.sg.bloomPass1.strength = 1.1
+            this.sg.bloomPass1.radius = 0.4
+
+            // Store original colors of all materials
+            this.originalMaterialColors = new Map();
+            // Iterate through all objects in the scene and store their original materials
+            this.scene.traverse((object) => {
+                if (object.isMesh && object.material) {
+                    this.originalMaterialColors.set(object, object.material.color.clone());
+                }
+            });
+
+            this.firstTimeMaterialSetupDone = true;
+        } else {
+            // we saved all of the original materials and set up the bloom filter, time to
+            // do the render passes
+
+            // Set the color of all materials to black (so only bloomed ones appear)
+            this.originalMaterialColors.forEach((originalColor, object) => {
+                object.material.color.set(0x000000);
+            });
+            this.glowingMaterial.color.set(0xFFFF00); // bloomed material
+
+            this.sg.bloom1.render();
+
+            // Restore the original colors of all materials now and render the final image
+            // (except for the bloomed one, no need to render it now)
+            this.originalMaterialColors.forEach((originalColor, object) => {
+                object.material.color.copy(originalColor);
+            });
+            this.glowingMaterial.color.set(0x000000);
+        }
+
+        this.sg.final.render();
+        // this.render(); // no longer use this, use the bloom wrapper instead
 
         this.prevTime = time;
 
@@ -569,6 +639,10 @@ export class Viewer {
             lightFolder.add(this.state, 'directIntensity', 0, 4), // TODO(#116)
             lightFolder.addColor(this.state, 'directColor')
         ].forEach((ctrl) => ctrl.onChange(() => this.updateLights()));
+
+        let bp1 = gui.addFolder("bloomPass");
+        bp1.add(this.sg.bloomPass1, "strength", 0.0, 10.0);
+        bp1.add(this.sg.bloomPass1, "radius", 0.0, 1.0);
 
         // Animation controls.
         this.animFolder = gui.addFolder('Animation');
