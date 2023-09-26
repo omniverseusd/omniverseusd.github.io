@@ -158,7 +158,7 @@ def removeAPI(prim, api_name):
     if api_name not in listOp.prependedItems:
         if api_name not in listOp.explicitItems:
             if api_name not in listOp.appendedItems:
-            return # not found, we're good
+                return # not found, we're good
 
     # Create a new list with whatever it was already present MINUS the api_name we want to remove
     newPrepended = listOp.prependedItems
