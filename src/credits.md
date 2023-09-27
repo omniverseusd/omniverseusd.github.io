@@ -6,7 +6,7 @@ Created by [Marco Alesiani](https://www.linkedin.com/in/marcodiiga/).
 
 ![](./images/credits/usd_logo_airship_rendered.png)
 
-This book and its webGL frontpage use open source libraries and technologies. Some paragraphs also draw from freely shared material.
+This book and its webGL frontpage use open source and royalty-free libraries and technologies. Some paragraphs also draw from freely shared material.
 
 * [glTF 2.0 viewer](https://github.com/donmccurdy/three-gltf-viewer)
 * [developer-office-hours sample extensions](https://github.com/mati-nvidia/developer-office-hours)
@@ -15,5 +15,6 @@ This book and its webGL frontpage use open source libraries and technologies. So
 * [VFX USD Survival Guide](https://lucascheller.github.io/VFX-UsdSurvivalGuide/)
 * [USD Cookbook](https://github.com/ColinKennedy/USD-Cookbook)
 * [Omniverse workshop - SIGGRAPH 2022](https://github.com/NVIDIA-Omniverse/workshop-siggraph-2022/)
+* [LowPoly Airship (royalty free)](https://www.cgtrader.com/free-3d-models/aircraft/other/cartoon-airship-low-poly-blimp)
 
 A huge thank you to all people who made this possible.
