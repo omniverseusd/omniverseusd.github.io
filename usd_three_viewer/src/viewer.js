@@ -180,8 +180,8 @@ export class Viewer {
             this.glowingMaterial = objectAtPath.material;
             // var material = mesh.material;
 
-            this.sg.bloomPass1.strength = 1.1
-            this.sg.bloomPass1.radius = 0.4
+            this.sg.bloomPass1.strength = 1.1;
+            this.sg.bloomPass1.radius = 0.4;
 
             // Store original colors of all materials
             this.originalMaterialColors = new Map();

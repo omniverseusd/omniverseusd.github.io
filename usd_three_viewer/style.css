@@ -13,8 +13,9 @@ body {
 }
 
 /*
-    Override the flex display - we want 100% height to be propagated to all elements
-    until we hit the webgl canvas
+    These rules make sure that the height is propagated until the webGL canvas. This is horrible
+    but I didn't find a better workaround.
+    Sets the minimum height of the body to 100% of the viewport height (100vh) and uses flexbox to achieve the desired layout. This is the only way it works on both safari/chrome.
 */
 body {
     min-height: 100vh;
