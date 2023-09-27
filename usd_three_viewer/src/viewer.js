@@ -116,7 +116,7 @@ export class Viewer {
         this.controls.screenSpacePanning = true;
 
         this.sg = new SelectiveGlow(this.scene, this.defaultCamera, this.renderer);
-        console.log(this.sg);
+        // console.log(this.sg);
 
         this.el.appendChild(this.renderer.domElement);
 
