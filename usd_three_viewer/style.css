@@ -12,10 +12,64 @@ body {
     box-sizing: border-box;
 }
 
+/*
+    Override the flex display - we want 100% height to be propagated to all elements
+    until we hit the webgl canvas
+*/
 body {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
+
+#body-container {
+    height: 100%;
+}
+
+#page-wrapper {
+    height: 100%;
+}
+
+div .page {
+    height: 100%;
+}
+
+div #content {
+    height: 100%;
+}
+
+main {
+    height: 100%;
+}
+
+div .viewzone {
+    height: 100%;
+}
+
+/* Hide scrollbars for the specified elements and their parent containers */
+
+/* For webkit-based browsers like Chrome and Safari */
+#body-container::-webkit-scrollbar,
+#page-wrapper::-webkit-scrollbar,
+div .page::-webkit-scrollbar,
+div #content::-webkit-scrollbar,
+main::-webkit-scrollbar,
+div .viewzone::-webkit-scrollbar {
+    width: 0;
+}
+
+/* For Firefox and some versions of Edge */
+#body-container,
+#page-wrapper,
+div .page,
+div #content,
+main,
+div .viewzone {
+    scrollbar-width: none;
+}
+
+
+
 
 .wrap {
     display: flex;
@@ -44,16 +98,6 @@ body {
 .placeholder p {
     font-size: 1.2rem;
     color: #999;
-}
-
-.viewer {
-    width: 100%;
-    height: 100%;
-    flex-grow: 1;
-    flex-shrink: 1;
-    position: absolute;
-    top: 0;
-    z-index: 0;
 }
 
 .axes {
