@@ -200,7 +200,7 @@ There is a [pretty good tutorial on the OpenUSD official website](https://openus
 
 * A schema definition file can be contained within a `USD plugin`, indicating that schema definitions and associated code (if not codeless) will be included in the resulting C++ and Python libraries. A `USD plugin` is a shared library object (e.g. .dll or .so) that USD applications can load via the `Plugin registry`
 
-    ![](../images/chapter4/plugin_listing.png)
+    ![](../images/chapter5/plugin_listing.png)
 
 * A script called `usdGenSchema` provided by the official pxr repo can be used to generate C++ classes (and/or python bindings)
 

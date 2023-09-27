@@ -11,5 +11,7 @@ This book and its webGL frontpage use open source libraries and technologies. So
 * [stemkoski Three.js selective glow](http://stemkoski.github.io/Three.js/Selective-Glow.html)
 * [Book of USD](https://remedy-entertainment.github.io/USDBook/)
 * [VFX USD Survival Guide](https://lucascheller.github.io/VFX-UsdSurvivalGuide/)
+* [USD Cookbook](https://github.com/ColinKennedy/USD-Cookbook)
+* [Omniverse workshop - SIGGRAPH 2022](https://github.com/NVIDIA-Omniverse/workshop-siggraph-2022/)
 
 A huge thank you to all people who made this possible.

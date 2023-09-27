@@ -22,9 +22,14 @@
   - [Specializes](./chapter3/specializes.md)
 - [Chapter 4]()
   - [Primspec and Attributes](./chapter4/primspecs_and_attributes.md)
+  - [Traversing](./chapter4/traversing.md)
+  - [Kind](./chapter4/kind.md)
   - [Instancing](./chapter4/instancing.md)
   - [List Composition](./chapter4/list_composition.md)
-  - [Schemas](./chapter4/schemas.md)
+- [Chapter 5]()
+  - [Schemas](./chapter5/schemas.md)
+  - [Events and Listeners](./chapter5/events_and_listeners.md)
+  - [Debugging](./chapter5/debugging.md)
 - []()
 -----------
 
