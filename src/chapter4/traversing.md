@@ -160,7 +160,7 @@ car2_prim.SetInstanceable(True)
 #         print(prim.GetPath())
 # traverse_and_print_prim_paths(parking_lot_stage)
 
-# This will only return non-instance prims
+# This will allow you to traverse instanced prims thanks to instance proxies!
 def traverse_and_print_all_prim_paths(stage):
     for prim in stage.Traverse(Usd.TraverseInstanceProxies()):
         print(prim.GetPath())
