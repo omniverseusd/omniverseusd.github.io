@@ -47,7 +47,10 @@ div .viewzone {
     height: 100%;
 }
 
-/* Hide scrollbars for the specified elements and their parent containers */
+/*
+    Hide scrollbars for the specified elements and their parent containers
+    (necessary for webGL viewer)
+ */
 
 /* For webkit-based browsers like Chrome and Safari */
 #body-container::-webkit-scrollbar,
