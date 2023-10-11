@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
         subtitle.style.color = 'gray';
         titlePageDiv.appendChild(subtitle);
 
-        // Clear any existing content
+        // Clear any existing content (this is the webgl viewer only, not the rest of the pages)
         var mainContentDiv = document.getElementById('main-content');
         if (mainContentDiv) {
             while (mainContentDiv.firstChild) {
@@ -51,6 +51,65 @@ document.addEventListener('DOMContentLoaded', function () {
             // The element doesn't exist in the current document
             console.log('Element with id "main-content" not found.');
         }
+
+
+        // Since our visualization CSS screw with the page visualizatin, we'll fix
+        // some CSS rules here with !important
+        var bodyElement = document.body;
+        bodyElement.style.setProperty('display', 'block', 'important');
+        bodyElement.style.setProperty('overflow', 'auto', 'important');
+        bodyElement.style.setProperty('width', 'auto', 'important');
+        bodyElement.style.setProperty('height', 'auto', 'important');
+
+
+        // Set a 'PRINTING FORMAT' label on the page
+
+        // Create a <style> element
+        var style = document.createElement("style");
+        // Set the type attribute
+        style.type = "text/css";
+        // Set the CSS code as the innerHTML of the <style> element (background AND unclickable)
+        style.innerHTML = `
+.diagonal-text {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none; /* make the element unclickable */
+    opacity: 0.5; /* make the element transparent */
+}
+
+
+.diagonal-text span {
+  font-size: 8rem;
+  font-weight: bold;
+  color: white;
+  transform: rotate(-45deg);
+}
+
+@media print {
+  .noprint {
+    display: none;
+  }
+}
+`;
+        // Append the <style> element to the <head> element
+        document.head.appendChild(style);
+        // Create a <div> element with class "diagonal-text" and "noprint"
+        var div = document.createElement("div");
+        div.className = "diagonal-text noprint";
+        // Create a <span> element with the text "PRINTING PREVIEW"
+        var span = document.createElement("span");
+        span.textContent = "PRINTING FORMAT";
+        // Append the <span> element to the <div> element
+        div.appendChild(span);
+        // Append the <div> element to the <body> element
+        document.body.appendChild(div);
+
     }
 });
 
