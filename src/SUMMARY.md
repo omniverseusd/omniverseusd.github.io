@@ -27,6 +27,7 @@
   - [Instancing](./chapter4/instancing.md)
   - [List Composition](./chapter4/list_composition.md)
 - [Chapter 5]()
+  - [Population Masks](./chapter5/population_masks.md)
   - [Schemas](./chapter5/schemas.md)
   - [Events and Listeners](./chapter5/events_and_listeners.md)
   - [Debugging](./chapter5/debugging.md)
