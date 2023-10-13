@@ -26,6 +26,7 @@
   - [Kind](./chapter4/kind.md)
   - [Instancing](./chapter4/instancing.md)
   - [List Composition](./chapter4/list_composition.md)
+  - [Transformations](./chapter4/transformations.md)
 - [Chapter 5]()
   - [Population Masks](./chapter5/population_masks.md)
   - [Schemas](./chapter5/schemas.md)
