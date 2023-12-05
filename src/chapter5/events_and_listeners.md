@@ -247,3 +247,17 @@ As you can see the USD event system is quite comprehensive and allows you to ins
 
 Here's a link to a more complex example involving creating an Omniverse extension printing out prim paths in the viewport directly: this also uses a `Usd.Notice.ObjectsChanged` listener to be notified if anything changes in the selected prim so it can react and update accordingly: [How to make an extension to display Object Info](https://github.com/NVIDIA-Omniverse/workshop-siggraph-2022/blob/main/exts/omni.example.ui_scene.object_info/Tutorial/object_info.tutorial.md#how-to-make-an-extension-to-display-object-info).
 
+One last thing to pay attention to: stage callbacks are usually handled by [USD contexts](../chapter2/context_stage_and_layers.md), therefore the right place to find such callbacks would be taking a look at USD contexts documentations (usually provided by the application you're using USD in), in Omniverse that would be [omni.usd.USDContext](https://docs.omniverse.nvidia.com/kit/docs/omni.usd/latest/omni.usd/omni.usd.UsdContext.html):
+
+```python
+stage: Usd.Stage = Usd.Stage.Open(some_usd_url)
+cache = UsdUtils.StageCache.Get()
+# Retrieve a long int id from the singleton cache for all local USD clients
+stage_id = cache.Insert(stage).ToLongInt()
+def on_stage_opened(result, err):
+    if result is True:
+        print(f"There were errors opening the stage: {err}")
+    else:
+        print("no errors, stage opened!")
+omni.usd.get_context().attach_stage_with_callback(stage_id=stage_id, on_finish_fn=stage_opened_fn)
+```
