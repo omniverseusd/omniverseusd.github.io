@@ -1,5 +1,5 @@
 # SUMMARY
-[Learn OpenUSD](./usd_three_viewer/index.html)
+[OpenUSD with Omniverse](./usd_three_viewer/index.html)
 
 -----------
 
