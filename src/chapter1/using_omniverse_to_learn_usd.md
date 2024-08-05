@@ -17,7 +17,7 @@ The foundation of many Omniverse applications is called Kit and it’s an extens
 An example: a user can write a Kit extension ([here's a good list of extensions used in Omniverse](https://docs.omniverse.nvidia.com/extensions/latest/index.html)) which acts as a web service: whenever a HTTP request is received, the extension can fire up a complex 3D scene, generate the assets or the scene requested [via the HTTP request with chatGPT](https://www.youtube.com/watch?v=mFazJsjUUSo), render it and send the rendered result back to the user. Another extension could show up a small UI panel in the Omniverse Composer application (more on this later) which allows a 3D artist to click a button, process the scene geometries with an AI application and apply effects, shaders and much more. Extensions are the core of Omniverse as we will later discover.
 
 ## Composer & Presenter
-Two of the most famous applications (and some of the very first ones a newcomer might try out) in Omniverse are USD Composer (formerly Create) and USD Presenter (formerly View).
+Two of the most famous reference applications (and some of the very first ones a newcomer might try out) in Omniverse are USD Composer (formerly Create) and USD Presenter (formerly View).
 
 The former is a 3D authoring program which allows users to compose complex scenes from 3D assets, applying physical properties to them, simulating and rendering, applying photorealistic materials and much more
 
@@ -39,43 +39,7 @@ With nucleus users can reference `omniverse://asset_paths` from external reposit
 
 Two things newcomers usually care a lot about: pricing and requirements.
 
-**Omniverse is free to use for individuals, but a license must be purchased for team use**: [Omniverse Licensing](https://www.nvidia.com/en-us/omniverse/download/).
-
-More in detail (from the official discord):
-
-```admonish quote
-Omniverse users are welcome to sell their extensions for whatever they please. The end users must have a license of Omniverse to use their extensions with, but that can be the free Omniverse Individual version.
-```
-
-So programmers are free to write and sell their Omniverse extensions. Users can buy and use those extensions as long as they do it abiding by the Omniverse license (i.e. if they're working as a team of 20 people with Omniverse, an enterprise license must be purchased). If they're working as individuals (or teams of 2 people), no license is necessary and Omniverse is totally free.
-
-What about 3D content I create with e.g. Omniverse Composer? Can I sell a rendered video of a Physical simulation made with Omniverse?
-
-```admonish quote
-Content and or code\extensions\apps created using OVI (Omniverse Individual license, i.e. abiding by the 2-users-tops requirement) for small teams, using desktops or cloud resources is allowed and can be used for commercial purposes.
-```
-
-So yes: you can create a video using Omniverse and you can sell it for whatever you want.
-
-Can I use Omniverse in my own private cloud?
-
-```admonish quote
-For the free version, you are allowed to put Omniverse in the cloud for your own purposes. For example, you are allowed to put OV apps on Azure or AWS VM, create 3D projects and render out those projects using Omniverse Farm which can also be on an Azure VM for free.
-
-The EULA is designed that once you scale the number of users working together and you need support, you should get the enterprise license.
-
-Other licensing example, You can also use the Omniverse Individual version to create, build, sell your own extensions and or apps for free. The user leveraging that extension or app just needs to follow the same EULA.
-```
-
-The only other restriction pertains to letting users use your "abiding OVI individual license" Omniverse apps as cloud services:
-
-```admonish quote
-Lets say for example, you put USD Composer in the cloud and allow anyone to use it for free as a streamed application. This would not be allowed, using OVI as a service to users outside your company.
-```
-
-For any other question or clarification please read the final paragraph of this post and get in contact with NVIDIA sales for a special license tailored to your needs: [omniverse-license-questions@nvidia.com](mailto:omniverse-license-questions@nvidia.com) will get you in touch with a developer relations manager that can work with you.
-
-Regarding Omniverse requirements, each application that works on the Omniverse platform might have different system requirements. The suggested way to get up-to-date information is to browse the NVIDIA website for the app you’re specifically interested in, e.g. [the USD Composer/Create page](https://www.nvidia.com/en-us/omniverse/apps/create/) lists requirements like a RTX class card as minimum viable hardware.
+Please check [this page](https://learnomniverse.github.io/chapter1/what_is_omniverse.html#pricing-and-requirements) for a detailed explanation of pricing and requirements for Omniverse.
 
 
 ## Support, learning, official resources
