@@ -41,7 +41,7 @@ There are two types of schemas:
     print(prim_type_name) # "Cube", this is the textual name of the prim type name
     # Get the Tf.Type (Tf is for internal type operations) from this 'Cube' type name
     prim_tftype_type : Tf.Type = Usd.SchemaRegistry.GetTypeFromName(prim_type_name)
-    # Use it to define a new variabile (get its python class with `pythonClass`)
+    # Use it to define a new variable (get its python class with `pythonClass`)
     # which points to the same Cube prim instance
     myObj : prim_tftype_type.pythonClass = cube
     print(myObj.GetSizeAttr().Get()) # "100"
